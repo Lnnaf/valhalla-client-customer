@@ -32,7 +32,7 @@ const ProductSection: FunctionComponent<ProductSectionProps> = () => {
 					{/* <!-- /section title --> */}
 
 					{/* <!-- Products tab & slick --> */}
-					<Slider perView={5} spacing= {10} items = {[<ProductItem/>, <ProductItem/>, <ProductItem/>, <ProductItem/>, <ProductItem/>, <ProductItem/>, <ProductItem/>]} />
+					<Slider perView={4} spacing= {10} items = {[<ProductItem/>, <ProductItem/>, <ProductItem/>, <ProductItem/>, <ProductItem/>, <ProductItem/>, <ProductItem/>]} />
 					{/* <!-- Products tab & slick --> */}
 				</div>
 				{/* <!-- /row --> */}

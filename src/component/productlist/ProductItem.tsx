@@ -1,4 +1,4 @@
-import { faExchange, faEye, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faExchange, faEye, faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FunctionComponent } from "react";
 
@@ -29,7 +29,7 @@ const ProductItem: FunctionComponent<ProductItemProps> = () => {
 												</div>
 											</div>
 											<div className="add-to-cart">
-												<button className="add-to-cart-btn" ><i className="fa fa-shopping-cart"></i> add to cart</button>
+												<button className="add-to-cart-btn" ><i><FontAwesomeIcon icon={faShoppingCart}/></i> add to cart</button>
 											</div>
 										</div>
   </div>
