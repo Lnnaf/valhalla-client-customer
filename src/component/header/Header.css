@@ -68,3 +68,12 @@
 		margin-bottom: 30px;
 	}
 }
+
+.dropdown .dropdown-backdrop {
+	position: fixed;
+	z-index: 2;
+}
+
+.dropdown a {
+	cursor: pointer;
+}

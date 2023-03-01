@@ -4,13 +4,19 @@ import {
 	faShoppingCart,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import CartPopUp from "../cartpopup/CartPopUp";
 import SearchBar from "../searchbar/SearchBar";
 
 interface MainHeaderProps {}
 
 const MainHeader: FunctionComponent<MainHeaderProps> = () => {
+	const [openCart, setOpenCart] = useState(false);
+	const onOpenCart = () =>{
+		console.log('x');
+		
+		setOpenCart(!openCart);
+	}
 	return (
 		<div id="header">
 			<div className="container">
@@ -39,10 +45,7 @@ const MainHeader: FunctionComponent<MainHeaderProps> = () => {
 								</a>
 							</div>
 							<div className="dropdown">
-								<a
-									className="dropdown-toggle"
-									data-toggle="dropdown"
-									aria-expanded="true"
+								<a onClick={onOpenCart}
 								>
 									<i>
 										<FontAwesomeIcon
@@ -51,8 +54,9 @@ const MainHeader: FunctionComponent<MainHeaderProps> = () => {
 									</i>
 									<span>Your Cart</span>
 									<div className="qty">3</div>
-									<CartPopUp open={false} />
+									{openCart ? <div className="dropdown-backdrop"></div> : <></>}
 								</a>
+								<CartPopUp open={openCart} />
 							</div>
 							<div className="menu-toggle">
 								<a href="#">

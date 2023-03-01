@@ -1,17 +1,18 @@
 import { faExchange, faEye, faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FunctionComponent } from "react";
+import { Product } from "./Model";
 
 interface ProductItemProps {
-  
+	product: Product; 
 }
  
-const ProductItem: FunctionComponent<ProductItemProps> = () => {
+const ProductItem: FunctionComponent<ProductItemProps> = (props) => {
   return (
   <div style={{height:'400px'}}>
      <div className="product" >
 											<div className="product-img">
-												<img src="https://cdn.divineshop.vn/image/catalog/Anh-SP/Kh%C3%A1c/Divine-Shop-Elden-Ring-82335.jpg?hash=1658742026" alt=""/>
+												<img src={props.product.images[0].url} alt=""/>
 												<div className="product-label">
 													<span className="sale">-30%</span>
 												</div>

@@ -51,7 +51,7 @@ const Slider: FunctionComponent<SliderProps> = (props) => {
 	return (
     <div ref={sliderRef} className="keen-slider">
           {props.items.map(function(object, i){
-        return  <div className="keen-slider__slide number-slide6">{object}</div> ;
+        return  <div key={i} className="keen-slider__slide number-slide6">{object}</div> ;
     })}
     </div>
 	);

@@ -2,6 +2,8 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FunctionComponent } from "react";
 
+import "./CartPopup.css"
+
 const Product = {};
 
 interface CartPopUpProps {
@@ -27,7 +29,6 @@ const CartPopUp: FunctionComponent<CartPopUpProps> = (props) => {
 	return (
 		<>
 			<div className={"dropdown " + (props.open ? "open" : "")}>
-				{props.open ? <div className="dropdown-backdrop"></div> : <></>}
 				<div className="cart-dropdown">
 					<div className="cart-list">
 						<div className="product-widget">

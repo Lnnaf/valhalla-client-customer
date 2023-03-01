@@ -1,8 +1,7 @@
-import { useKeenSlider } from "keen-slider/react";
 import { FunctionComponent } from "react";
 import Slider from "../slider/Slider";
 import AdsConntent from "./AdsContent";
-import "./AdsSection";
+import "./AdsSection.css";
 
 interface AdsSectionProps {}
 
