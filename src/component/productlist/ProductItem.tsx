@@ -8,19 +8,23 @@ interface ProductItemProps {
 }
  
 const ProductItem: FunctionComponent<ProductItemProps> = (props) => {
+	let product = props.product;
+	const calculationCost = (origanalPrice: number, percent: number): number => {
+		return Math.round(origanalPrice -(origanalPrice * (percent/ 100)))
+	}
   return (
   <div style={{height:'400px'}}>
      <div className="product" >
 											<div className="product-img">
-												<img src={props.product.images[0].url} alt=""/>
+												<img src={product.images[0].url} alt=""/>
 												<div className="product-label">
-													<span className="sale">-30%</span>
+													<span className="sale">-{product.discountPercentage}%</span>
 												</div>
 											</div>
 											<div className="product-body">
-												<p className="product-category">Category</p>
-												<h3 className="product-name"><a href="#" >product name goes here</a></h3>
-												<h4 className="product-price">$980.00 <del className="product-old-price">$990.00</del></h4>
+												<p className="product-category">{product.category.name}</p>
+												<h3 className="product-name"><a href="#" >{product.name}</a></h3>
+												<h4 className="product-price">${calculationCost(product.originalPrice, product.discountPercentage)} <del className="product-old-price">${product.originalPrice}</del></h4>
 												<div className="product-rating">
 												</div>
 												<div className="product-btns">

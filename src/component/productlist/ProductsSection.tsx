@@ -3,8 +3,8 @@ import Slider from "../slider/Slider";
 import ProductItem from "./ProductItem";
 
 import "./Product.css";
-import { getCatories, getProducts } from "../../service/ProductService";
-import { Product, ProductCategory } from "./model";
+import { getCatories, getProducts, getProductsNewestByCategory } from "../../service/ProductService";
+import { Product, ProductCategory } from "./Model";
 
 interface ProductSectionProps {}
 
@@ -17,6 +17,7 @@ const partialProduct = {
 };
 
 const ProductSection: FunctionComponent<ProductSectionProps> = () => {
+	const [previouseCategoryId, setPreviouseCategoryId] = useState<number>();
 	const [categories, setCategories] = useState<ProductCategory[]>([]);
 	const [activeCategory, setActiveCategory] = useState<ProductCategory>();
 	const [products, setProducts] = useState<Product[]>([]);
@@ -35,7 +36,14 @@ const ProductSection: FunctionComponent<ProductSectionProps> = () => {
 	};
 	const handleCategorySelect = (selectedCategory: ProductCategory) => {
     setActiveCategory(selectedCategory);
+		setPreviouseCategoryId(selectedCategory.id)
+		getProductByCategory(selectedCategory.id);
   };
+
+	const getProductByCategory = async (id: number) => {
+		const productsRes = await getProductsNewestByCategory(id);
+		setProducts(productsRes);
+	}
 
 	return (
 		<>
@@ -76,7 +84,7 @@ const ProductSection: FunctionComponent<ProductSectionProps> = () => {
 							perView={4}
 							spacing={10}
 							items={products.map((product) =>{
-								return(<ProductItem key={product.id}/>)
+								return(<ProductItem product={product} key={product.id}/>)
 							})}
 						/>
 						{/* <!-- Products tab & slick --> */}
