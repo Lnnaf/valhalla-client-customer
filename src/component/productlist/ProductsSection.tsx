@@ -54,8 +54,8 @@ const ProductSection: FunctionComponent<ProductSectionProps> = () => {
 											return (
 												<li key={category.id} className={isActive ? "active" : ""}>
 													<a
+														style={{cursor: "pointer"}}
 														data-toggle="tab"
-														href="#tab1"
 														aria-expanded="true"
 														onClick={() => handleCategorySelect(category)}
 													>
