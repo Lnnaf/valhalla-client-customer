@@ -10,18 +10,10 @@ interface ProductSectionProps {}
 
 
 
-const partialProduct = {
-  id: 1,
-  name: 'Product Name',
-  price: 10.0,
-};
-
 const ProductSection: FunctionComponent<ProductSectionProps> = () => {
-	const [previouseCategoryId, setPreviouseCategoryId] = useState<number>();
 	const [categories, setCategories] = useState<ProductCategory[]>([]);
 	const [activeCategory, setActiveCategory] = useState<ProductCategory>();
 	const [products, setProducts] = useState<Product[]>([]);
-	const [productBlocks, setProductBlocks] = useState<any[]>([]);
 
 	useEffect(() => {
 		initData();
@@ -36,7 +28,6 @@ const ProductSection: FunctionComponent<ProductSectionProps> = () => {
 	};
 	const handleCategorySelect = (selectedCategory: ProductCategory) => {
     setActiveCategory(selectedCategory);
-		setPreviouseCategoryId(selectedCategory.id)
 		getProductByCategory(selectedCategory.id);
   };
 
