@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Product, ProductCategory } from '../component/productlist/Model';
 
-const API_URL = 'http://localhost:8080/api/v1';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const getCatories = async () :  Promise<ProductCategory[]> => {
   try {
